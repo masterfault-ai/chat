@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatKing - Mechanical Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-container" id="loginForm">
+            <div class="mechanical-border">
+                <div class="gear-decoration">
+                    <i class="fas fa-cog gear-spin"></i>
+                    <i class="fas fa-cog gear-spin-reverse"></i>
+                </div>
+                <h2>Welcome to ChatKing</h2>
+                <form onsubmit="return handleLogin(event)">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="loginUsername" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="mechanical-button">
+                        <span class="button-content">Login</span>
+                    </button>
+                </form>
+                <p>Don't have an account? <a href="#" onclick="toggleForms()">Register</a></p>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-container hidden" id="registerForm">
+            <div class="mechanical-border">
+                <div class="gear-decoration">
+                    <i class="fas fa-cog gear-spin"></i>
+                    <i class="fas fa-cog gear-spin-reverse"></i>
+                </div>
+                <h2>Join ChatKing</h2>
+                <form onsubmit="return handleRegister(event)">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerUsername" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="mechanical-button">
+                        <span class="button-content">Register</span>
+                    </button>
+                </form>
+                <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
+            </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-container hidden" id="chatInterface">
+            <!-- Users List -->
+            <div class="users-list">
+                <div class="current-user-header">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="currentUserDisplay"></span>
+                    </div>
+                    <button onclick="logout()" class="logout-btn">
+                        <i class="fas fa-power-off"></i>
+                    </button>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="userSearch" placeholder="Search users...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="users-container" id="usersList">
+                    <!-- Users will be listed here -->
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div class="chat-user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="selectedUserDisplay">Select a user to start chatting</span>
+                    </div>
+                    <div class="gear-decoration">
+                        <i class="fas fa-cog gear-spin"></i>
+                    </div>
+                </div>
+                <div class="chat-messages" id="messageArea">
+                    <!-- Messages will be displayed here -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Type your message..." disabled>
+                    <button onclick="sendMessage()" class="send-btn" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
